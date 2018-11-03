@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <header role="banner">
+     
+      <nav class="navbar navbar-expand-md navbar-dark bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="{{ url_for('index') }}">FND</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+            <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- END header -->
+
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url({{url_for('static', filename='images/news.jpg')}});">
+      <div class="container">
+        <div class="row align-items-center site-hero-inner justify-content-center">
+          <div class="col-md-8 text-center">
+
+            <div class="mb-5 element-animate">
+              <h1>About Us</h1>
+              <p>Discover &amp; believe news that are reliable.</p>
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-5 element-animate" data-animate-effect="fadeInLeft">
+            <img src="../static/images/fakepaper.jpg" class="img-md-fluid" alt="Placeholder image">
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="bg-white pl-lg-5 pl-0  pb-lg-5 pb-0 element-animate" data-animate-effect="fadeInRight">
+            <h2>About Us</h2>
+            <p>The Fake news detector is web-based software that classifies reliable and fake news. Maniz Shrestha designed and developed the software as his Senior Computer Science Capstone project at Earlham College. The algorithm to detect fake news uses machine learning to learn from network metadata and sentimental analysis of the text.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END section -->
+
+    
+{% endblock %}

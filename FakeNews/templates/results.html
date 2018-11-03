@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <header role="banner">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url_for('index') }}">FND</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+                <div class="collapse navbar-collapse navbar-light" id="navbarsExample05">
+                    <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- END header -->
+
+    <section class="site-hero site-hero-innerpage overlay" data-stellar-background-ratio="0.5" style="background-image: url({{url_for('static', filename='images/news.jpg')}});">
+        <div class="container">
+            <div class="row align-items-center site-hero-inner justify-content-center">
+                <div class="col-md-8 text-center">
+
+                    <div class="mb-5 element-animate">
+                        <h1>Verify news sources</h1>
+                        <p>Discover &amp; believe news that are reliable.</p>
+                    </div>
+                    <form action="{{ url_for('results') }}" class="form-inline element-animate" id="search-form" method="post">
+                        <label for="s" class="sr-only">Location</label>
+                        <input type="url" name="url" class="form-control form-control-block search-input" id="autocomplete" placeholder="Type the URL of the news source">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="report">
+        <div class="container">
+
+            <div class="row" style="margin: 10px"> 
+                <div class="col-lg-9 col-md-12">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="bg-white pl-lg-12 pl-0  pb-lg-12 pb-0 element-animate" data-animate-effect="fadeInRight">
+                            <h2>About Us</h2>
+                            <p>Title: &nbsp{{data.title}} </p>
+                            <p>URL: &nbsp{{data.url}}</p>
+                            <p>Authors: &nbsp{{data.authors}}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-12" style="text-align: center;">
+                    {% if data.prediction[0] == 0 %}
+                    <div>
+                        <i class="fas fa-check-circle fa-10x icon-green"></i>
+                        <h2>Reliable News</h2>
+                    </div>
+                    {% else %}
+                    <div>
+                        <i class="fas fa-times-circle fa-10x icon-red"></i>
+                        <h2>Fake News</h2>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="wel_item">
+                        <i class="far fa-thumbs-up fa-3x"></i>
+                        <h4>{{data.reaction_count}}</h4>
+                        <p>Total Likes</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="wel_item">
+                        <i class="far fa-comments fa-3x"></i>
+                        <h4>{{data.comment_count}}</h4>
+                        <p>Total Comments</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="wel_item">
+                        <i class="fas fa-share fa-3x"></i>
+                        <h4>{{data.comment_plugin_count}}</h4>
+                        <p>Total Plugins</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="wel_item">
+                        <i class="fas fa-star fa-3x"></i>
+                        <h4>{{data.page_rank_integer}}</h4>
+                        <p>Domain Score</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END section -->
+
+{% endblock %}
