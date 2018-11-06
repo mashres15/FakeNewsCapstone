@@ -38,7 +38,7 @@ def getMetaData(url, domain = True):
 	comment_plugin_count = post['engagement']['comment_plugin_count']
 
 	if domain:
-		formdata ={'domains': url}
+		formdata ={'domains': [url]}
 
 		request_url = 'https://openpagerank.com/api/v1.0/getPageRank?' + encode(formdata)
 		headers = {'API-OPR': 'gccgs8wo4k44cgwc4gogwowwk08404kks8o4w0o0'}

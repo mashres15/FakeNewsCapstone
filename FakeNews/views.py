@@ -40,7 +40,7 @@ def results():
     if request.method == 'POST':
         url = request.form['url']
         data = newsPrediction(url)
-#        print(data) 
+        print(data) 
         predict = data['prediction'][0]
         news = Fakenewscorpus(
             url = url,
